@@ -90,7 +90,138 @@ body {
 
 
 
+/* Trust Section */
+.trust-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  gap: 40px;
+}
+
+.trust-text {
+  flex: 1;
+  max-width: 600px;
+  font-weight: 100;
+}
+
+.trust-text h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.trust-text h3 {
+  margin-top: 24px;
+  font-size: 26px;
+}
+
+.trust-text p {
+  font-size: 20px;
+  color: #555;
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+.trust-text a {
+  color: #2962ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.trust-visual {
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trust-visual img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.trust-visual-btn {
+  margin: 50px;
+  padding: 12px 20px;
+  /* border: 2px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 16px;
+}
+
+.trust-visual-btn a {
+  display: block;
+  color: #2962ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.5s ease;
+}
+.trust-visual-btn a:hover {
+    transform: scale(1.2);
+}
+
+/* News section */
+.news-section {
+  max-width: 1200px;
+  margin: -15px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+  /* border: 2px solid red; */
+  flex: 1;
+}
+
+#press-logo {
+  max-width: 100%;
+}
+
+/* Price section */
+.price-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+  gap: 40px;
+}
+
+.price-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.price-text h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.price-img {
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile Responsive */
+
 @media (max-width: 768px) {
+  /* Header Section */
   .nav-links {
     display: none;
   }
@@ -100,6 +231,7 @@ body {
     margin-left: auto;
   }
 
+  /* Hero Section */
   .hero h1 {
     font-size: 28px;
   }
@@ -111,5 +243,25 @@ body {
   .cta-button {
     font-size: 16px;
     padding: 12px 24px;
+  }
+
+  /* Trust Section */
+  .trust-section {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .trust-text {
+    max-width: 100%;
+  }
+
+  .trust-visual {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 405px) {
+  .trust-visual-btn {
+    flex-direction: column;
   }
 }
