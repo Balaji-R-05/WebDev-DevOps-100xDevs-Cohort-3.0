@@ -3,7 +3,6 @@
  * It waits for the specified time and then executes the callback function.
  */
 
-// print Hello! to the console immediately
 console.log("Hello!");
 
 // setTimeout(callback, time in ms);

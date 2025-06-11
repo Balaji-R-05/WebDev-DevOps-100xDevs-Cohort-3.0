@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 
-const contents = fs.readFileSync("a.txt", "utf-8"); // synchronous way of reading file
+const contents = fs.readFileSync("a.txt", "utf-8");
 
-// print the contents of the file 
 console.log(contents); 
