@@ -1,5 +1,5 @@
 class Rectangle {
-    constructor (width, height, color) {
+    constructor(width, height, color) {
         this.width = width;
         this.height = height;
         this.color = color;
@@ -16,7 +16,10 @@ class Rectangle {
     }
 
     paint() {
-        console.log(`Painting this rectange in ${this.color} color`);
+        console.log(`Painting this rectangle in ${this.color} color`);
+    }
+    toString() {
+        return `Rectangle: ${this.width}x${this.height}, Color: ${this.color}`;
     }
 }
 
@@ -26,3 +29,4 @@ const perimeter = rect.perimeter()
 console.log(area)
 console.log(perimeter);
 rect.paint()
+console.log(rect.toString())
