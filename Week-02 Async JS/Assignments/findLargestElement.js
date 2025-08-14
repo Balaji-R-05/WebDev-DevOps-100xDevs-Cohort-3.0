@@ -15,6 +15,6 @@ function findLargestElement(numbers) {
     return largestElement;
 }
 
-const arr = [3, 7, 2, 9, 1];
+const arr = [3, 7, 2, 9, 11, 1];
 const res = findLargestElement(arr);
 console.log(res);

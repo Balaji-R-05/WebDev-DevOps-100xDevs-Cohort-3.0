@@ -10,7 +10,6 @@ function first() {
 
 function second() {
   first();
-
   console.log("Second");
 }
 

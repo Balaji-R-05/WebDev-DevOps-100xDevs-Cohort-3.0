@@ -5,12 +5,14 @@
 */
 
 function isAnagram(str1, str2) {
+  str1 = str1.trim().toLowerCase().replace(/[^a-z]/g, '');
+  str2 = str2.trim().toLowerCase().replace(/[^a-z]/g, '');
   if (str1.length !== str2.length) {
     return false;
   }
-  const sortedStr1 = str1.toLowerCase().split('').sort().join('');
-  const sortedStr2 = str2.toLowerCase().split('').sort().join('');
+  const sortedStr1 = str1.split('').sort().join('');
+  const sortedStr2 = str2.split('').sort().join('');
   return sortedStr1 === sortedStr2;
 }
 
-console.log(isAnagram("racecar" , "racecar"));
+console.log(isAnagram("racecar" , "carrace"));

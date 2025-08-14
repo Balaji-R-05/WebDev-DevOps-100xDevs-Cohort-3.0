@@ -1,14 +1,14 @@
-const fs = require("fs");
+import { readFile } from "fs";
 
-fs.readFile("a.txt", "utf-8", function (err, contents) {
+readFile("a.txt", "utf-8", function (err, contents) {
   console.log(contents);
 });
 
 
-fs.readFile("b.txt", "utf-8", function (err, contents) {
+readFile("b.txt", "utf-8", function (err, contents) {
   console.log(contents);
 });
 
-fs.readFile("a.txt", "utf-8", function (err, contents) {
+readFile("a.txt", "utf-8", function (err, contents) {
   console.log(contents);
 });

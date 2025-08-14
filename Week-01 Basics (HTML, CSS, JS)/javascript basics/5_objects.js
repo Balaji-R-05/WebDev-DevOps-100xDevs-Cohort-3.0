@@ -4,13 +4,12 @@
 function greetUser(user) {
     console.log("Hello " + user.name + ", You are " + user.age + " years old.");
 }
-
 let user = {
     name: "Bharat",
     age: 21
 };
-
 greetUser(user); // Hello Bharat, You are 21 years old.
+
 
 
 // 2. Write a function that takes a new object as input which has `name` , `age`  and `gender` and greets the user with their gender (Hi `Mr/Mrs/Others` harkirat, your age is 21)
@@ -24,14 +23,13 @@ function greet(user) {
         console.log("Hi " + user.name + ", your age is " + user.age);
     }
 }
-
 let user1 = {
     name: "B",
     age: 21,
     gender: "male"
 }
-
 greet(user1); // Hi Mr Bharat, your age is 21
+
 
 
 // 3. Also tell the user if they are legal to vote or not
