@@ -1,8 +1,8 @@
-setTimeout(function () {
+setTimeout(() => {
     console.log("Hello 1");
-    setTimeout(function () {
+    setTimeout(() => {
         console.log("Hello 2");
-        setTimeout(function () {
+        setTimeout(() => {
             console.log("Hello 3");
         }, 5000)
     }, 3000)

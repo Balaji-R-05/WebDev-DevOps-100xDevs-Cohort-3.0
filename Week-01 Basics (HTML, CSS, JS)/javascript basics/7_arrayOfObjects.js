@@ -49,15 +49,6 @@ let users2 = [
   },
 ];
 
-
-// function getUsers(users) {
-//     let filteredUsers = users.filter((user) => user.age > 18 && user.gender === "male");
-
-//     return filteredUsers;
-
-
-// }
-
 let allUsers = getUsers(users2);
 
 console.log(allUsers);

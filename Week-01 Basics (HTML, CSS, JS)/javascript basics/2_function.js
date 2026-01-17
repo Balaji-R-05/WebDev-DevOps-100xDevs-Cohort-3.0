@@ -1,9 +1,6 @@
 // 1. Write a function sum that finds the `sum` of two numbers. 
 function sum(a, b) {
-    // calculates the sum of a and b and stores it in the variable `total`
     let total = a + b;
-
-    // returns the value of `total`
     return total;
 }
 

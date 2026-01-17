@@ -35,7 +35,6 @@ greet(user1); // Hi Mr Bharat, your age is 21
 // 3. Also tell the user if they are legal to vote or not
 
 function greet(user) {
-    // logs a greeting message with the user1 with their gender and also eligible for vote or not
     if (user.gender === "male") {
         if (canVote(user.age)) {
             console.log("Hi Mr " + user.name + ", your age is " + user.age + " and you are eligible to vote");

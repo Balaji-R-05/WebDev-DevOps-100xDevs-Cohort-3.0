@@ -1,4 +1,4 @@
-import {readFile, writeFile} from 'fs';
+import { readFile, writeFile } from 'fs';
 
 function cleanFile(filePath) {
   return new Promise((resolve, reject) => {
