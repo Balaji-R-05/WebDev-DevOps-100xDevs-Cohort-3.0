@@ -1,0 +1,84 @@
+ <!-- Make a POST request to the backend server using either axios or fetch API -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100xDevs</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 2rem;
+            color: #333;
+            font-weight: 700;
+            text-align: center;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>100xDevs</h1>
+    <input type="number" id="a" placeholder="Enter First Number" required />
+    <input type="number" id="b" placeholder="Enter Second Number" required />
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <h2 id="result"></h2>
+
+    <script>
+        async function calculateSum() {
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+
+            if (!a || !b) {
+                alert("Please enter both the numbers");
+                return;
+            }
+
+            const response = await fetch('http://localhost:3000/sum', {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ a, b })
+            });
+            const data = await response.json();
+            console.log(data);
+            document.getElementById("result").innerText = data.ans;
+        }
+    </script>
+</body>
+
+</html>
