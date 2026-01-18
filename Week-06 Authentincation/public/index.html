@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100xDevs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>100xDevs</h1>
+
+    <div id="forms">
+        <form id="sign-up-form">
+            <input type="text" name="name" placeholder="Name" autocomplete="name" required>
+            <input type="text" name="username" placeholder="Username" autocomplete="username" required>
+            <input type="password" name="password" placeholder="Password" autocomplete="current-password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <form id="sign-in-form">
+            <input type="text" name="username" placeholder="Username" autocomplete="username" required>
+            <input type="password" name="password" placeholder="Password" autocomplete="current-password" required>
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
+
+    <button onclick="signOut()">Sign Out</button>
+    <button onclick="getMe()">Get Me</button>
+
+    <div id="result">
+        <p id="message"></p>
+        <p id="token"></p>
+    </div>
+
+    <script>
+        const signUpForm = document.getElementById("sign-up-form");
+        const signInForm = document.getElementById("sign-in-form");
+        const message = document.getElementById("message");
+        const token = document.getElementById("token");
+
+        signUpForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const name = e.target.name.value;
+            const username = e.target.username.value;
+            const password = e.target.password.value;
+
+            const response = await fetch("http://localhost:5000/sign-up", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ name, username, password })
+            });
+
+            const data = await response.json();
+            message.innerText = `Message: ${data.message}`;
+            localStorage.setItem("authToken", data.token);
+            e.target.reset();
+        });
+
+        signInForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const username = e.target.username.value;
+            const password = e.target.password.value;
+
+            const response = await fetch("http://localhost:5000/sign-in", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await response.json();
+            localStorage.setItem("authToken", data.token);
+            const meResponse = await fetch("http://localhost:5000/me", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "token": data.token
+                }
+            })
+            const meData = await meResponse.json();
+            message.innerText = `Message: ${meData.message}`;
+            token.innerText = ``;
+            e.target.reset();
+        });
+
+        function signOut() {
+            localStorage.removeItem("authToken");
+            message.innerText = "You have been signed out.";
+            token.innerText = "";
+        }
+
+        async function getMe() {
+            const authToken = localStorage.getItem("authToken");
+            if (!authToken) {
+                message.innerText = "No auth token found. Please sign in.";
+                return;
+            }
+            console.log("TOKEN FROM LOCALSTORAGE:", authToken);
+            const response = await fetch("http://localhost:5000/me", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "token": authToken
+                }
+            })
+            const data = await response.json();
+            // console.log("DATA FROM ME ROUTE:", data);
+            message.innerText = `Name: ${data.name}`;
+            token.innerText = `Username: ${data.username}`;
+        }
+    </script>
+</body>
+
+</html>
